@@ -1,0 +1,205 @@
+{
+  "version": "IAEA-LiveChart-ENSDF-subset-2026-10-14",
+  "appVersion": "1.0.0",
+  "retrievalDates": [
+    "2026-10-14"
+  ],
+  "sourceSnapshotStatement": "API guide describes an April 2022 ENSDF snapshot. Per-line evaluation publication cutoff and actual extraction date are retained; extraction date is NOT an evaluation date. No assertion of latest ENSDF.",
+  "energyRangeKeV": [
+    20,
+    3500
+  ],
+  "sourceTermsUrl": "https://nucleus.iaea.org/Pages/Others/Terms-Of-Use.aspx",
+  "dataLicense": "Source terms and attribution apply; data are excluded from the software MIT license. No IAEA or NNDC endorsement.",
+  "coverage": "Selected nuclear gamma transitions for 11 parent states; not a complete nuclide library. X rays and annihilation radiation excluded.",
+  "nuclides": [
+    {
+      "nuclide": "Co-60",
+      "query": "60co",
+      "parentLevelKeV": 0,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+      "rawFile": "data/raw/60co-gamma.csv",
+      "sha256": "6e7296eb9661e9bd75034bb1382749ddcc8a900662b9e7c6e8d088baf2d2e626",
+      "sourceRows": 20,
+      "includedLines": 6,
+      "excludedRows": {
+        "different_or_unknown_parent_state": 9,
+        "no_nuclear_transition_levels": 5
+      },
+      "availableParentEnergies": [
+        "0",
+        "58.59"
+      ]
+    },
+    {
+      "nuclide": "Cs-137",
+      "query": "137cs",
+      "parentLevelKeV": 0,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=137cs&rad_types=g",
+      "rawFile": "data/raw/137cs-gamma.csv",
+      "sha256": "838cb4f251a6eb21a69738deb8a74dd3ca9a401ffb5f949e25ce0f89494a9633",
+      "sourceRows": 8,
+      "includedLines": 2,
+      "excludedRows": {
+        "no_nuclear_transition_levels": 6
+      },
+      "availableParentEnergies": [
+        "0"
+      ]
+    },
+    {
+      "nuclide": "Na-22",
+      "query": "22na",
+      "parentLevelKeV": 0,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=22na&rad_types=g",
+      "rawFile": "data/raw/22na-gamma.csv",
+      "sha256": "a95211d5310668f81df3b1494138f9454592935b3f5252510a66ae606daa9a4a",
+      "sourceRows": 4,
+      "includedLines": 1,
+      "excludedRows": {
+        "no_nuclear_transition_levels": 3
+      },
+      "availableParentEnergies": [
+        "0"
+      ]
+    },
+    {
+      "nuclide": "Eu-152",
+      "query": "152eu",
+      "parentLevelKeV": 0,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=152eu&rad_types=g",
+      "rawFile": "data/raw/152eu-gamma.csv",
+      "sha256": "247527b389b03484bca8833ffa24b77113ef42ce378a199939504e7eaa75dd9c",
+      "sourceRows": 308,
+      "includedLines": 173,
+      "excludedRows": {
+        "different_or_unknown_parent_state": 104,
+        "no_nuclear_transition_levels": 31
+      },
+      "availableParentEnergies": [
+        "0",
+        "147.86",
+        "45.5998"
+      ]
+    },
+    {
+      "nuclide": "Ba-133",
+      "query": "133ba",
+      "parentLevelKeV": 0,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=133ba&rad_types=g",
+      "rawFile": "data/raw/133ba-gamma.csv",
+      "sha256": "5b493bb07f9efce0c017610b216469d2fcdbc8a8bdbbefcd6205c2809f2c14dd",
+      "sourceRows": 31,
+      "includedLines": 9,
+      "excludedRows": {
+        "different_or_unknown_parent_state": 16,
+        "no_nuclear_transition_levels": 6
+      },
+      "availableParentEnergies": [
+        "0",
+        "288.252"
+      ]
+    },
+    {
+      "nuclide": "Am-241",
+      "query": "241am",
+      "parentLevelKeV": 0,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=241am&rad_types=g",
+      "rawFile": "data/raw/241am-gamma.csv",
+      "sha256": "f1f0d205ee2959980899fa11f70516a3d8ec19f4154db16b4d59d9954314fdc1",
+      "sourceRows": 179,
+      "includedLines": 128,
+      "excludedRows": {
+        "outside_20_3500_keV": 1,
+        "no_nuclear_transition_levels": 50
+      },
+      "availableParentEnergies": [
+        "0"
+      ]
+    },
+    {
+      "nuclide": "I-131",
+      "query": "131i",
+      "parentLevelKeV": 0,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=131i&rad_types=g",
+      "rawFile": "data/raw/131i-gamma.csv",
+      "sha256": "b714da1525de09511133dd223b22255dffa76aeed5d12ca34f2068c238909f97",
+      "sourceRows": 26,
+      "includedLines": 19,
+      "excludedRows": {
+        "no_nuclear_transition_levels": 7
+      },
+      "availableParentEnergies": [
+        "0"
+      ]
+    },
+    {
+      "nuclide": "Tc-99m",
+      "query": "99tc",
+      "parentLevelKeV": 142.6835,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=99tc&rad_types=g",
+      "rawFile": "data/raw/99tc-gamma.csv",
+      "sha256": "2f476cea3a69c71fc76b1dad7c7d213a1f3ae67c5dab2aed7417262bc903d9bd",
+      "sourceRows": 25,
+      "includedLines": 5,
+      "excludedRows": {
+        "outside_20_3500_keV": 1,
+        "different_or_unknown_parent_state": 7,
+        "no_nuclear_transition_levels": 12
+      },
+      "availableParentEnergies": [
+        "0",
+        "142.6836"
+      ]
+    },
+    {
+      "nuclide": "K-40",
+      "query": "40k",
+      "parentLevelKeV": 0,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=40k&rad_types=g",
+      "rawFile": "data/raw/40k-gamma.csv",
+      "sha256": "c23bd09f5ff1094ea93a714878cdbd73cc7fc883ab9205af082f2a131f4caaf9",
+      "sourceRows": 7,
+      "includedLines": 1,
+      "excludedRows": {
+        "no_nuclear_transition_levels": 6
+      },
+      "availableParentEnergies": [
+        "0"
+      ]
+    },
+    {
+      "nuclide": "Bi-214",
+      "query": "214bi",
+      "parentLevelKeV": 0,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=214bi&rad_types=g",
+      "rawFile": "data/raw/214bi-gamma.csv",
+      "sha256": "aeb2c4d2f998208f72d0a99a793a4243b587e7e3942fe951983c0f7ae31e3f54",
+      "sourceRows": 322,
+      "includedLines": 302,
+      "excludedRows": {
+        "no_nuclear_transition_levels": 20
+      },
+      "availableParentEnergies": [
+        "0"
+      ]
+    },
+    {
+      "nuclide": "Pb-214",
+      "query": "214pb",
+      "parentLevelKeV": 0,
+      "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=214pb&rad_types=g",
+      "rawFile": "data/raw/214pb-gamma.csv",
+      "sha256": "dd9d4d7d9c817b4d171e9dfdccddd44bc2d50842f47dc59ebe50b9a6e9fe0861",
+      "sourceRows": 35,
+      "includedLines": 21,
+      "excludedRows": {
+        "outside_20_3500_keV": 1,
+        "no_nuclear_transition_levels": 13
+      },
+      "availableParentEnergies": [
+        "0"
+      ]
+    }
+  ]
+}

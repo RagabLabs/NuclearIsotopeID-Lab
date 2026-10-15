@@ -1,0 +1,1426 @@
+{
+  "appVersion": "1.0.0",
+  "dataVersion": "IAEA-LiveChart-ENSDF-subset-2026-10-14",
+  "createdAt": "2026-10-15T09:01:32.716Z",
+  "inputProvenance": "Declared simulated example; not an experimental spectrum",
+  "label": "Research evidence report; not a definitive isotope certificate",
+  "status": "Supported",
+  "peaks": [
+    {
+      "id": "P1",
+      "energyKeV": 661.67,
+      "energyUncertaintyKeV": 0.1,
+      "area": 5957,
+      "areaUncertainty": 80,
+      "fwhmKeV": 1.6,
+      "measurementTimeSec": 600,
+      "detectorId": "simulated-HPGe"
+    },
+    {
+      "id": "P2",
+      "energyKeV": 1173.24,
+      "energyUncertaintyKeV": 0.12,
+      "area": 3994,
+      "areaUncertainty": 65,
+      "fwhmKeV": 2,
+      "measurementTimeSec": 600,
+      "detectorId": "simulated-HPGe"
+    },
+    {
+      "id": "P3",
+      "energyKeV": 1332.5,
+      "energyUncertaintyKeV": 0.12,
+      "area": 3499,
+      "areaUncertainty": 60,
+      "fwhmKeV": 2.1,
+      "measurementTimeSec": 600,
+      "detectorId": "simulated-HPGe"
+    },
+    {
+      "id": "P4",
+      "energyKeV": 1460.82,
+      "energyUncertaintyKeV": 0.14,
+      "area": 2132,
+      "areaUncertainty": 47,
+      "fwhmKeV": 2.2,
+      "measurementTimeSec": 600,
+      "detectorId": "simulated-HPGe"
+    },
+    {
+      "id": "P5",
+      "energyKeV": 1911.111,
+      "energyUncertaintyKeV": 0.1,
+      "area": 120,
+      "areaUncertainty": 15,
+      "fwhmKeV": 2.4,
+      "measurementTimeSec": 600,
+      "detectorId": "simulated-HPGe"
+    }
+  ],
+  "settings": {
+    "kSigma": 3,
+    "calibrationUncertaintyKnown": true,
+    "calibrationUncertaintyKeV": 0,
+    "calibrationOffsetKeV": 0,
+    "fallbackAbsoluteKeV": 0.4,
+    "fallbackRelativePpm": 800,
+    "minProbability": 0.001,
+    "energyMinKeV": 20,
+    "energyMaxKeV": 3500,
+    "efficiency": [
+      {
+        "energyKeV": 20,
+        "efficiency": 0.1,
+        "uncertainty": 0.005
+      },
+      {
+        "energyKeV": 500,
+        "efficiency": 0.08,
+        "uncertainty": 0.004
+      },
+      {
+        "energyKeV": 661.657,
+        "efficiency": 0.07,
+        "uncertainty": 0.0035
+      },
+      {
+        "energyKeV": 1173.228,
+        "efficiency": 0.04,
+        "uncertainty": 0.002
+      },
+      {
+        "energyKeV": 1332.492,
+        "efficiency": 0.035,
+        "uncertainty": 0.00175
+      },
+      {
+        "energyKeV": 1460.82,
+        "efficiency": 0.03,
+        "uncertainty": 0.0015
+      },
+      {
+        "energyKeV": 3500,
+        "efficiency": 0.01,
+        "uncertainty": 0.0005
+      }
+    ],
+    "efficiencyCorrelation": 0,
+    "summingAssumption": "negligible",
+    "peakListComplete": false,
+    "maxMixtureSize": 3,
+    "inlierFraction": 0.9,
+    "intensityModelRelativeUncertainty": 0
+  },
+  "reference": {
+    "version": "IAEA-LiveChart-ENSDF-subset-2026-10-14",
+    "lines": 667,
+    "nuclides": [
+      "Co-60",
+      "Cs-137",
+      "Na-22",
+      "Eu-152",
+      "Ba-133",
+      "Am-241",
+      "I-131",
+      "Tc-99m",
+      "K-40",
+      "Bi-214",
+      "Pb-214"
+    ],
+    "sources": [
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=137cs&rad_types=g",
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=22na&rad_types=g",
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=152eu&rad_types=g",
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=133ba&rad_types=g",
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=241am&rad_types=g",
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=131i&rad_types=g",
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=99tc&rad_types=g",
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=40k&rad_types=g",
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=214bi&rad_types=g",
+      "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=214pb&rad_types=g"
+    ],
+    "manifest": [
+      {
+        "nuclide": "Co-60",
+        "query": "60co",
+        "parentLevelKeV": 0,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+        "rawFile": "data/raw/60co-gamma.csv",
+        "sha256": "6e7296eb9661e9bd75034bb1382749ddcc8a900662b9e7c6e8d088baf2d2e626",
+        "sourceRows": 20,
+        "includedLines": 6,
+        "excludedRows": {
+          "different_or_unknown_parent_state": 9,
+          "no_nuclear_transition_levels": 5
+        },
+        "availableParentEnergies": [
+          "0",
+          "58.59"
+        ]
+      },
+      {
+        "nuclide": "Cs-137",
+        "query": "137cs",
+        "parentLevelKeV": 0,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=137cs&rad_types=g",
+        "rawFile": "data/raw/137cs-gamma.csv",
+        "sha256": "838cb4f251a6eb21a69738deb8a74dd3ca9a401ffb5f949e25ce0f89494a9633",
+        "sourceRows": 8,
+        "includedLines": 2,
+        "excludedRows": {
+          "no_nuclear_transition_levels": 6
+        },
+        "availableParentEnergies": [
+          "0"
+        ]
+      },
+      {
+        "nuclide": "Na-22",
+        "query": "22na",
+        "parentLevelKeV": 0,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=22na&rad_types=g",
+        "rawFile": "data/raw/22na-gamma.csv",
+        "sha256": "a95211d5310668f81df3b1494138f9454592935b3f5252510a66ae606daa9a4a",
+        "sourceRows": 4,
+        "includedLines": 1,
+        "excludedRows": {
+          "no_nuclear_transition_levels": 3
+        },
+        "availableParentEnergies": [
+          "0"
+        ]
+      },
+      {
+        "nuclide": "Eu-152",
+        "query": "152eu",
+        "parentLevelKeV": 0,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=152eu&rad_types=g",
+        "rawFile": "data/raw/152eu-gamma.csv",
+        "sha256": "247527b389b03484bca8833ffa24b77113ef42ce378a199939504e7eaa75dd9c",
+        "sourceRows": 308,
+        "includedLines": 173,
+        "excludedRows": {
+          "different_or_unknown_parent_state": 104,
+          "no_nuclear_transition_levels": 31
+        },
+        "availableParentEnergies": [
+          "0",
+          "147.86",
+          "45.5998"
+        ]
+      },
+      {
+        "nuclide": "Ba-133",
+        "query": "133ba",
+        "parentLevelKeV": 0,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=133ba&rad_types=g",
+        "rawFile": "data/raw/133ba-gamma.csv",
+        "sha256": "5b493bb07f9efce0c017610b216469d2fcdbc8a8bdbbefcd6205c2809f2c14dd",
+        "sourceRows": 31,
+        "includedLines": 9,
+        "excludedRows": {
+          "different_or_unknown_parent_state": 16,
+          "no_nuclear_transition_levels": 6
+        },
+        "availableParentEnergies": [
+          "0",
+          "288.252"
+        ]
+      },
+      {
+        "nuclide": "Am-241",
+        "query": "241am",
+        "parentLevelKeV": 0,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=241am&rad_types=g",
+        "rawFile": "data/raw/241am-gamma.csv",
+        "sha256": "f1f0d205ee2959980899fa11f70516a3d8ec19f4154db16b4d59d9954314fdc1",
+        "sourceRows": 179,
+        "includedLines": 128,
+        "excludedRows": {
+          "outside_20_3500_keV": 1,
+          "no_nuclear_transition_levels": 50
+        },
+        "availableParentEnergies": [
+          "0"
+        ]
+      },
+      {
+        "nuclide": "I-131",
+        "query": "131i",
+        "parentLevelKeV": 0,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=131i&rad_types=g",
+        "rawFile": "data/raw/131i-gamma.csv",
+        "sha256": "b714da1525de09511133dd223b22255dffa76aeed5d12ca34f2068c238909f97",
+        "sourceRows": 26,
+        "includedLines": 19,
+        "excludedRows": {
+          "no_nuclear_transition_levels": 7
+        },
+        "availableParentEnergies": [
+          "0"
+        ]
+      },
+      {
+        "nuclide": "Tc-99m",
+        "query": "99tc",
+        "parentLevelKeV": 142.6835,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=99tc&rad_types=g",
+        "rawFile": "data/raw/99tc-gamma.csv",
+        "sha256": "2f476cea3a69c71fc76b1dad7c7d213a1f3ae67c5dab2aed7417262bc903d9bd",
+        "sourceRows": 25,
+        "includedLines": 5,
+        "excludedRows": {
+          "outside_20_3500_keV": 1,
+          "different_or_unknown_parent_state": 7,
+          "no_nuclear_transition_levels": 12
+        },
+        "availableParentEnergies": [
+          "0",
+          "142.6836"
+        ]
+      },
+      {
+        "nuclide": "K-40",
+        "query": "40k",
+        "parentLevelKeV": 0,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=40k&rad_types=g",
+        "rawFile": "data/raw/40k-gamma.csv",
+        "sha256": "c23bd09f5ff1094ea93a714878cdbd73cc7fc883ab9205af082f2a131f4caaf9",
+        "sourceRows": 7,
+        "includedLines": 1,
+        "excludedRows": {
+          "no_nuclear_transition_levels": 6
+        },
+        "availableParentEnergies": [
+          "0"
+        ]
+      },
+      {
+        "nuclide": "Bi-214",
+        "query": "214bi",
+        "parentLevelKeV": 0,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=214bi&rad_types=g",
+        "rawFile": "data/raw/214bi-gamma.csv",
+        "sha256": "aeb2c4d2f998208f72d0a99a793a4243b587e7e3942fe951983c0f7ae31e3f54",
+        "sourceRows": 322,
+        "includedLines": 302,
+        "excludedRows": {
+          "no_nuclear_transition_levels": 20
+        },
+        "availableParentEnergies": [
+          "0"
+        ]
+      },
+      {
+        "nuclide": "Pb-214",
+        "query": "214pb",
+        "parentLevelKeV": 0,
+        "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=214pb&rad_types=g",
+        "rawFile": "data/raw/214pb-gamma.csv",
+        "sha256": "dd9d4d7d9c817b4d171e9dfdccddd44bc2d50842f47dc59ebe50b9a6e9fe0861",
+        "sourceRows": 35,
+        "includedLines": 21,
+        "excludedRows": {
+          "outside_20_3500_keV": 1,
+          "no_nuclear_transition_levels": 13
+        },
+        "availableParentEnergies": [
+          "0"
+        ]
+      }
+    ],
+    "sourceSnapshotStatement": "API guide describes an April 2022 ENSDF snapshot. Per-line evaluation publication cutoff and actual extraction date are retained; extraction date is NOT an evaluation date. No assertion of latest ENSDF."
+  },
+  "matching": {
+    "matches": [
+      {
+        "peakId": "P1",
+        "line": {
+          "id": "137cs-L3",
+          "nuclide": "Cs-137",
+          "daughter": "Ba-137",
+          "radiationType": "gamma",
+          "energyKeV": 661.657,
+          "energyUncertaintyKeV": 0.003,
+          "emissionProbability": 0.851,
+          "emissionProbabilityUncertainty": 0.002,
+          "intensityKind": "absolute-photons-per-parent-transformation",
+          "transitionId": "Ba-137:661.659->0.0:B-",
+          "startLevelKeV": 661.659,
+          "endLevelKeV": 0,
+          "parentLevelKeV": 0,
+          "decayMode": "B-",
+          "multipolarity": "M4",
+          "source": "IAEA LiveChart / ENSDF",
+          "evaluationVersion": "1-Oct-2006",
+          "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+          "extractionDate": "2026-10-14",
+          "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=137cs&rad_types=g",
+          "sourceRow": 3,
+          "rawFile": "data/raw/137cs-gamma.csv",
+          "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+        },
+        "deltaKeV": 0.012999999999919964,
+        "sigmaKeV": 0.10004498987955368,
+        "independentVarianceKeV2": 0.010009000000000002,
+        "z": 0.12994153945710768,
+        "toleranceKeV": 0.30013496963866104,
+        "basis": "uncertainty",
+        "incompleteUncertainty": false
+      },
+      {
+        "peakId": "P2",
+        "line": {
+          "id": "60co-L6",
+          "nuclide": "Co-60",
+          "daughter": "Ni-60",
+          "radiationType": "gamma",
+          "energyKeV": 1173.228,
+          "energyUncertaintyKeV": 0.003,
+          "emissionProbability": 0.9984999999999999,
+          "emissionProbabilityUncertainty": 0.0003,
+          "intensityKind": "absolute-photons-per-parent-transformation",
+          "transitionId": "Ni-60:2505.748->1332.508:B-",
+          "startLevelKeV": 2505.748,
+          "endLevelKeV": 1332.508,
+          "parentLevelKeV": 0,
+          "decayMode": "B-",
+          "multipolarity": "E2(+M3)",
+          "source": "IAEA LiveChart / ENSDF",
+          "evaluationVersion": "31-Dec-2012",
+          "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+          "extractionDate": "2026-10-14",
+          "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+          "sourceRow": 6,
+          "rawFile": "data/raw/60co-gamma.csv",
+          "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+        },
+        "deltaKeV": 0.011999999999943611,
+        "sigmaKeV": 0.12003749414245535,
+        "independentVarianceKeV2": 0.014409,
+        "z": 0.09996876464034252,
+        "toleranceKeV": 0.36011248242736604,
+        "basis": "uncertainty",
+        "incompleteUncertainty": false
+      },
+      {
+        "peakId": "P3",
+        "line": {
+          "id": "60co-L7",
+          "nuclide": "Co-60",
+          "daughter": "Ni-60",
+          "radiationType": "gamma",
+          "energyKeV": 1332.492,
+          "energyUncertaintyKeV": 0.004,
+          "emissionProbability": 0.9998260000000001,
+          "emissionProbabilityUncertainty": 0.000005999999999999999,
+          "intensityKind": "absolute-photons-per-parent-transformation",
+          "transitionId": "Ni-60:1332.508->0.0:B-",
+          "startLevelKeV": 1332.508,
+          "endLevelKeV": 0,
+          "parentLevelKeV": 0,
+          "decayMode": "B-",
+          "multipolarity": "E2",
+          "source": "IAEA LiveChart / ENSDF",
+          "evaluationVersion": "31-Dec-2012",
+          "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+          "extractionDate": "2026-10-14",
+          "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+          "sourceRow": 7,
+          "rawFile": "data/raw/60co-gamma.csv",
+          "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+        },
+        "deltaKeV": 0.008000000000038199,
+        "sigmaKeV": 0.12006664815842906,
+        "independentVarianceKeV2": 0.014416,
+        "z": 0.06662966046559511,
+        "toleranceKeV": 0.3601999444752872,
+        "basis": "uncertainty",
+        "incompleteUncertainty": false
+      },
+      {
+        "peakId": "P4",
+        "line": {
+          "id": "40k-L2",
+          "nuclide": "K-40",
+          "daughter": "Ar-40",
+          "radiationType": "gamma",
+          "energyKeV": 1460.82,
+          "energyUncertaintyKeV": 0.005,
+          "emissionProbability": 0.1066,
+          "emissionProbabilityUncertainty": 0.0013,
+          "intensityKind": "absolute-photons-per-parent-transformation",
+          "transitionId": "Ar-40:1460.851->0.0:EC+B+",
+          "startLevelKeV": 1460.851,
+          "endLevelKeV": 0,
+          "parentLevelKeV": 0,
+          "decayMode": "EC+B+",
+          "multipolarity": "E2",
+          "source": "IAEA LiveChart / ENSDF",
+          "evaluationVersion": "30-Sep-2015",
+          "evaluationAuthors": "JUN CHEN",
+          "extractionDate": "2026-10-14",
+          "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=40k&rad_types=g",
+          "sourceRow": 2,
+          "rawFile": "data/raw/40k-gamma.csv",
+          "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+        },
+        "deltaKeV": 0,
+        "sigmaKeV": 0.140089257261219,
+        "independentVarianceKeV2": 0.019625000000000004,
+        "z": 0,
+        "toleranceKeV": 0.42026777178365704,
+        "basis": "uncertainty",
+        "incompleteUncertainty": false
+      }
+    ],
+    "groups": [
+      {
+        "id": "P1",
+        "peakIds": [
+          "P1"
+        ]
+      },
+      {
+        "id": "P2",
+        "peakIds": [
+          "P2"
+        ]
+      },
+      {
+        "id": "P3",
+        "peakIds": [
+          "P3"
+        ]
+      },
+      {
+        "id": "P4",
+        "peakIds": [
+          "P4"
+        ]
+      },
+      {
+        "id": "P5",
+        "peakIds": [
+          "P5"
+        ]
+      }
+    ],
+    "warnings": []
+  },
+  "candidates": [
+    {
+      "nuclide": "Co-60",
+      "assignments": [
+        {
+          "peakId": "P2",
+          "line": {
+            "id": "60co-L6",
+            "nuclide": "Co-60",
+            "daughter": "Ni-60",
+            "radiationType": "gamma",
+            "energyKeV": 1173.228,
+            "energyUncertaintyKeV": 0.003,
+            "emissionProbability": 0.9984999999999999,
+            "emissionProbabilityUncertainty": 0.0003,
+            "intensityKind": "absolute-photons-per-parent-transformation",
+            "transitionId": "Ni-60:2505.748->1332.508:B-",
+            "startLevelKeV": 2505.748,
+            "endLevelKeV": 1332.508,
+            "parentLevelKeV": 0,
+            "decayMode": "B-",
+            "multipolarity": "E2(+M3)",
+            "source": "IAEA LiveChart / ENSDF",
+            "evaluationVersion": "31-Dec-2012",
+            "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+            "extractionDate": "2026-10-14",
+            "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+            "sourceRow": 6,
+            "rawFile": "data/raw/60co-gamma.csv",
+            "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+          },
+          "deltaKeV": 0.011999999999943611,
+          "sigmaKeV": 0.12003749414245535,
+          "independentVarianceKeV2": 0.014409,
+          "z": 0.09996876464034252,
+          "toleranceKeV": 0.36011248242736604,
+          "basis": "uncertainty",
+          "incompleteUncertainty": false
+        },
+        {
+          "peakId": "P3",
+          "line": {
+            "id": "60co-L7",
+            "nuclide": "Co-60",
+            "daughter": "Ni-60",
+            "radiationType": "gamma",
+            "energyKeV": 1332.492,
+            "energyUncertaintyKeV": 0.004,
+            "emissionProbability": 0.9998260000000001,
+            "emissionProbabilityUncertainty": 0.000005999999999999999,
+            "intensityKind": "absolute-photons-per-parent-transformation",
+            "transitionId": "Ni-60:1332.508->0.0:B-",
+            "startLevelKeV": 1332.508,
+            "endLevelKeV": 0,
+            "parentLevelKeV": 0,
+            "decayMode": "B-",
+            "multipolarity": "E2",
+            "source": "IAEA LiveChart / ENSDF",
+            "evaluationVersion": "31-Dec-2012",
+            "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+            "extractionDate": "2026-10-14",
+            "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+            "sourceRow": 7,
+            "rawFile": "data/raw/60co-gamma.csv",
+            "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+          },
+          "deltaKeV": 0.008000000000038199,
+          "sigmaKeV": 0.12006664815842906,
+          "independentVarianceKeV2": 0.014416,
+          "z": 0.06662966046559511,
+          "toleranceKeV": 0.3601999444752872,
+          "basis": "uncertainty",
+          "incompleteUncertainty": false
+        }
+      ],
+      "independentLines": 2,
+      "uniqueLines": 2,
+      "score": 27.9927982926786,
+      "energyQuality": 0.9963991463392996,
+      "missingCount": 0,
+      "explanation": "10 × 2 independent support + 3 × 2 exclusive groups + 2 × 0.996 energy agreement. Missing-line contradictions are evaluated separately."
+    },
+    {
+      "nuclide": "K-40",
+      "assignments": [
+        {
+          "peakId": "P4",
+          "line": {
+            "id": "40k-L2",
+            "nuclide": "K-40",
+            "daughter": "Ar-40",
+            "radiationType": "gamma",
+            "energyKeV": 1460.82,
+            "energyUncertaintyKeV": 0.005,
+            "emissionProbability": 0.1066,
+            "emissionProbabilityUncertainty": 0.0013,
+            "intensityKind": "absolute-photons-per-parent-transformation",
+            "transitionId": "Ar-40:1460.851->0.0:EC+B+",
+            "startLevelKeV": 1460.851,
+            "endLevelKeV": 0,
+            "parentLevelKeV": 0,
+            "decayMode": "EC+B+",
+            "multipolarity": "E2",
+            "source": "IAEA LiveChart / ENSDF",
+            "evaluationVersion": "30-Sep-2015",
+            "evaluationAuthors": "JUN CHEN",
+            "extractionDate": "2026-10-14",
+            "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=40k&rad_types=g",
+            "sourceRow": 2,
+            "rawFile": "data/raw/40k-gamma.csv",
+            "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+          },
+          "deltaKeV": 0,
+          "sigmaKeV": 0.140089257261219,
+          "independentVarianceKeV2": 0.019625000000000004,
+          "z": 0,
+          "toleranceKeV": 0.42026777178365704,
+          "basis": "uncertainty",
+          "incompleteUncertainty": false
+        }
+      ],
+      "independentLines": 1,
+      "uniqueLines": 1,
+      "score": 15,
+      "energyQuality": 1,
+      "missingCount": 0,
+      "explanation": "10 × 1 independent support + 3 × 1 exclusive groups + 2 × 1.000 energy agreement. Missing-line contradictions are evaluated separately."
+    },
+    {
+      "nuclide": "Cs-137",
+      "assignments": [
+        {
+          "peakId": "P1",
+          "line": {
+            "id": "137cs-L3",
+            "nuclide": "Cs-137",
+            "daughter": "Ba-137",
+            "radiationType": "gamma",
+            "energyKeV": 661.657,
+            "energyUncertaintyKeV": 0.003,
+            "emissionProbability": 0.851,
+            "emissionProbabilityUncertainty": 0.002,
+            "intensityKind": "absolute-photons-per-parent-transformation",
+            "transitionId": "Ba-137:661.659->0.0:B-",
+            "startLevelKeV": 661.659,
+            "endLevelKeV": 0,
+            "parentLevelKeV": 0,
+            "decayMode": "B-",
+            "multipolarity": "M4",
+            "source": "IAEA LiveChart / ENSDF",
+            "evaluationVersion": "1-Oct-2006",
+            "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+            "extractionDate": "2026-10-14",
+            "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=137cs&rad_types=g",
+            "sourceRow": 3,
+            "rawFile": "data/raw/137cs-gamma.csv",
+            "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+          },
+          "deltaKeV": 0.012999999999919964,
+          "sigmaKeV": 0.10004498987955368,
+          "independentVarianceKeV2": 0.010009000000000002,
+          "z": 0.12994153945710768,
+          "toleranceKeV": 0.30013496963866104,
+          "basis": "uncertainty",
+          "incompleteUncertainty": false
+        }
+      ],
+      "independentLines": 1,
+      "uniqueLines": 1,
+      "score": 14.983186270319933,
+      "energyQuality": 0.9915931351599668,
+      "missingCount": 0,
+      "explanation": "10 × 1 independent support + 3 × 1 exclusive groups + 2 × 0.992 energy agreement. Missing-line contradictions are evaluated separately."
+    }
+  ],
+  "details": [
+    {
+      "nuclide": "Co-60",
+      "consistency": {
+        "lineCount": 2,
+        "residuals": [
+          {
+            "peakId": "P2",
+            "referenceKeV": 1173.228,
+            "deltaKeV": 0.011999999999943611,
+            "z": 0.09996876464034252
+          },
+          {
+            "peakId": "P3",
+            "referenceKeV": 1332.492,
+            "deltaKeV": 0.008000000000038199,
+            "z": 0.06662966046559511
+          }
+        ],
+        "chiSquare": 0.014433265557476684,
+        "degreesOfFreedom": 2,
+        "reducedChiSquare": 0.007216632778738342,
+        "commonCalibrationSigmaKeV": 0,
+        "status": "Gaussian centroid consistency with a shared calibration covariance; no calibrated identification probability."
+      },
+      "missing": [
+        {
+          "line": {
+            "id": "60co-L6",
+            "nuclide": "Co-60",
+            "daughter": "Ni-60",
+            "radiationType": "gamma",
+            "energyKeV": 1173.228,
+            "energyUncertaintyKeV": 0.003,
+            "emissionProbability": 0.9984999999999999,
+            "emissionProbabilityUncertainty": 0.0003,
+            "intensityKind": "absolute-photons-per-parent-transformation",
+            "transitionId": "Ni-60:2505.748->1332.508:B-",
+            "startLevelKeV": 2505.748,
+            "endLevelKeV": 1332.508,
+            "parentLevelKeV": 0,
+            "decayMode": "B-",
+            "multipolarity": "E2(+M3)",
+            "source": "IAEA LiveChart / ENSDF",
+            "evaluationVersion": "31-Dec-2012",
+            "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+            "extractionDate": "2026-10-14",
+            "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+            "sourceRow": 6,
+            "rawFile": "data/raw/60co-gamma.csv",
+            "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+          },
+          "state": "observed",
+          "expectedCounts": null,
+          "uncertainty": null,
+          "lowerCounts": null,
+          "reason": "Energy-compatible observed peak; shared assignments are not proof of this nuclide."
+        },
+        {
+          "line": {
+            "id": "60co-L7",
+            "nuclide": "Co-60",
+            "daughter": "Ni-60",
+            "radiationType": "gamma",
+            "energyKeV": 1332.492,
+            "energyUncertaintyKeV": 0.004,
+            "emissionProbability": 0.9998260000000001,
+            "emissionProbabilityUncertainty": 0.000005999999999999999,
+            "intensityKind": "absolute-photons-per-parent-transformation",
+            "transitionId": "Ni-60:1332.508->0.0:B-",
+            "startLevelKeV": 1332.508,
+            "endLevelKeV": 0,
+            "parentLevelKeV": 0,
+            "decayMode": "B-",
+            "multipolarity": "E2",
+            "source": "IAEA LiveChart / ENSDF",
+            "evaluationVersion": "31-Dec-2012",
+            "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+            "extractionDate": "2026-10-14",
+            "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+            "sourceRow": 7,
+            "rawFile": "data/raw/60co-gamma.csv",
+            "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+          },
+          "state": "observed",
+          "expectedCounts": null,
+          "uncertainty": null,
+          "lowerCounts": null,
+          "reason": "Energy-compatible observed peak; shared assignments are not proof of this nuclide."
+        }
+      ],
+      "intensity": {
+        "ratios": [
+          {
+            "line": {
+              "id": "60co-L7",
+              "nuclide": "Co-60",
+              "daughter": "Ni-60",
+              "radiationType": "gamma",
+              "energyKeV": 1332.492,
+              "energyUncertaintyKeV": 0.004,
+              "emissionProbability": 0.9998260000000001,
+              "emissionProbabilityUncertainty": 0.000005999999999999999,
+              "intensityKind": "absolute-photons-per-parent-transformation",
+              "transitionId": "Ni-60:1332.508->0.0:B-",
+              "startLevelKeV": 1332.508,
+              "endLevelKeV": 0,
+              "parentLevelKeV": 0,
+              "decayMode": "B-",
+              "multipolarity": "E2",
+              "source": "IAEA LiveChart / ENSDF",
+              "evaluationVersion": "31-Dec-2012",
+              "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+              "extractionDate": "2026-10-14",
+              "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+              "sourceRow": 7,
+              "rawFile": "data/raw/60co-gamma.csv",
+              "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+            },
+            "anchor": {
+              "id": "60co-L6",
+              "nuclide": "Co-60",
+              "daughter": "Ni-60",
+              "radiationType": "gamma",
+              "energyKeV": 1173.228,
+              "energyUncertaintyKeV": 0.003,
+              "emissionProbability": 0.9984999999999999,
+              "emissionProbabilityUncertainty": 0.0003,
+              "intensityKind": "absolute-photons-per-parent-transformation",
+              "transitionId": "Ni-60:2505.748->1332.508:B-",
+              "startLevelKeV": 2505.748,
+              "endLevelKeV": 1332.508,
+              "parentLevelKeV": 0,
+              "decayMode": "B-",
+              "multipolarity": "E2(+M3)",
+              "source": "IAEA LiveChart / ENSDF",
+              "evaluationVersion": "31-Dec-2012",
+              "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+              "extractionDate": "2026-10-14",
+              "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=60co&rad_types=g",
+              "sourceRow": 6,
+              "rawFile": "data/raw/60co-gamma.csv",
+              "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+            },
+            "observed": 0.8760640961442163,
+            "expected": 0.8761619929894846,
+            "observedUncertainty": 0.020711126635823623,
+            "expectedUncertainty": 0.0619545681492718,
+            "logResidual": -0.00011173997006120107,
+            "z": -0.0014986855264362484,
+            "assessment": "Compatible under the stated detector and summing model."
+          }
+        ],
+        "warnings": [
+          "Emission-probability and summing-factor errors are treated as independent; their evaluation covariances are unavailable. Additional ratio-model uncertainty must be explicitly supplied for numerical residuals.",
+          "Ratios share the same anchor and are correlated. No independent-ratio chi-square is computed. Peak-area correlations are not supplied; overlapping peaks are excluded."
+        ]
+      },
+      "contradictions": 0
+    },
+    {
+      "nuclide": "K-40",
+      "consistency": {
+        "lineCount": 1,
+        "residuals": [
+          {
+            "peakId": "P4",
+            "referenceKeV": 1460.82,
+            "deltaKeV": 0,
+            "z": 0
+          }
+        ],
+        "chiSquare": 0,
+        "degreesOfFreedom": 1,
+        "reducedChiSquare": 0,
+        "commonCalibrationSigmaKeV": 0,
+        "status": "Single independent line; multi-line consistency unavailable."
+      },
+      "missing": [
+        {
+          "line": {
+            "id": "40k-L2",
+            "nuclide": "K-40",
+            "daughter": "Ar-40",
+            "radiationType": "gamma",
+            "energyKeV": 1460.82,
+            "energyUncertaintyKeV": 0.005,
+            "emissionProbability": 0.1066,
+            "emissionProbabilityUncertainty": 0.0013,
+            "intensityKind": "absolute-photons-per-parent-transformation",
+            "transitionId": "Ar-40:1460.851->0.0:EC+B+",
+            "startLevelKeV": 1460.851,
+            "endLevelKeV": 0,
+            "parentLevelKeV": 0,
+            "decayMode": "EC+B+",
+            "multipolarity": "E2",
+            "source": "IAEA LiveChart / ENSDF",
+            "evaluationVersion": "30-Sep-2015",
+            "evaluationAuthors": "JUN CHEN",
+            "extractionDate": "2026-10-14",
+            "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=40k&rad_types=g",
+            "sourceRow": 2,
+            "rawFile": "data/raw/40k-gamma.csv",
+            "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+          },
+          "state": "observed",
+          "expectedCounts": null,
+          "uncertainty": null,
+          "lowerCounts": null,
+          "reason": "Energy-compatible observed peak; shared assignments are not proof of this nuclide."
+        }
+      ],
+      "intensity": {
+        "ratios": [],
+        "warnings": [
+          "At least two isolated, non-shared peaks with net areas, absolute emission probabilities, and full-energy efficiency coverage are required. No raw-area vs emission-probability comparison is made."
+        ]
+      },
+      "contradictions": 0
+    },
+    {
+      "nuclide": "Cs-137",
+      "consistency": {
+        "lineCount": 1,
+        "residuals": [
+          {
+            "peakId": "P1",
+            "referenceKeV": 661.657,
+            "deltaKeV": 0.012999999999919964,
+            "z": 0.12994153945710768
+          }
+        ],
+        "chiSquare": 0.016884803676483068,
+        "degreesOfFreedom": 1,
+        "reducedChiSquare": 0.016884803676483068,
+        "commonCalibrationSigmaKeV": 0,
+        "status": "Single independent line; multi-line consistency unavailable."
+      },
+      "missing": [
+        {
+          "line": {
+            "id": "137cs-L3",
+            "nuclide": "Cs-137",
+            "daughter": "Ba-137",
+            "radiationType": "gamma",
+            "energyKeV": 661.657,
+            "energyUncertaintyKeV": 0.003,
+            "emissionProbability": 0.851,
+            "emissionProbabilityUncertainty": 0.002,
+            "intensityKind": "absolute-photons-per-parent-transformation",
+            "transitionId": "Ba-137:661.659->0.0:B-",
+            "startLevelKeV": 661.659,
+            "endLevelKeV": 0,
+            "parentLevelKeV": 0,
+            "decayMode": "B-",
+            "multipolarity": "M4",
+            "source": "IAEA LiveChart / ENSDF",
+            "evaluationVersion": "1-Oct-2006",
+            "evaluationAuthors": "E. BROWNE and  J. K. TULI",
+            "extractionDate": "2026-10-14",
+            "sourceUrl": "https://www-nds.iaea.org/relnsd/v1/data?fields=decay_rads&nuclides=137cs&rad_types=g",
+            "sourceRow": 3,
+            "rawFile": "data/raw/137cs-gamma.csv",
+            "dataStatus": "evaluated-nuclear-gamma; subset; not independently re-evaluated"
+          },
+          "state": "observed",
+          "expectedCounts": null,
+          "uncertainty": null,
+          "lowerCounts": null,
+          "reason": "Energy-compatible observed peak; shared assignments are not proof of this nuclide."
+        }
+      ],
+      "intensity": {
+        "ratios": [],
+        "warnings": [
+          "At least two isolated, non-shared peaks with net areas, absolute emission probabilities, and full-energy efficiency coverage are required. No raw-area vs emission-probability comparison is made."
+        ]
+      },
+      "contradictions": 0
+    }
+  ],
+  "ambiguity": {
+    "shared": [],
+    "discriminating": [
+      {
+        "nuclide": "Co-60",
+        "lines": []
+      },
+      {
+        "nuclide": "K-40",
+        "lines": []
+      },
+      {
+        "nuclide": "Cs-137",
+        "lines": []
+      }
+    ],
+    "note": "Suggested discriminating lines are separated under the declared fallback window only. Detectability and detector resolution must be checked; the database is incomplete."
+  },
+  "mixture": {
+    "mixtures": [
+      {
+        "nuclides": [
+          "Co-60",
+          "K-40",
+          "Cs-137"
+        ],
+        "peakIds": [
+          "P1",
+          "P2",
+          "P3",
+          "P4"
+        ],
+        "score": 2.95,
+        "coverage": 0.8,
+        "unexplained": [
+          "P5"
+        ],
+        "assignments": [
+          {
+            "peakId": "P1",
+            "nuclides": [
+              "Cs-137"
+            ]
+          },
+          {
+            "peakId": "P2",
+            "nuclides": [
+              "Co-60"
+            ]
+          },
+          {
+            "peakId": "P3",
+            "nuclides": [
+              "Co-60"
+            ]
+          },
+          {
+            "peakId": "P4",
+            "nuclides": [
+              "K-40"
+            ]
+          },
+          {
+            "peakId": "P5",
+            "nuclides": []
+          }
+        ]
+      },
+      {
+        "nuclides": [
+          "Co-60",
+          "Cs-137"
+        ],
+        "peakIds": [
+          "P1",
+          "P2",
+          "P3"
+        ],
+        "score": 2.3,
+        "coverage": 0.6,
+        "unexplained": [
+          "P4",
+          "P5"
+        ],
+        "assignments": [
+          {
+            "peakId": "P1",
+            "nuclides": [
+              "Cs-137"
+            ]
+          },
+          {
+            "peakId": "P2",
+            "nuclides": [
+              "Co-60"
+            ]
+          },
+          {
+            "peakId": "P3",
+            "nuclides": [
+              "Co-60"
+            ]
+          },
+          {
+            "peakId": "P4",
+            "nuclides": []
+          },
+          {
+            "peakId": "P5",
+            "nuclides": []
+          }
+        ]
+      },
+      {
+        "nuclides": [
+          "Co-60",
+          "K-40"
+        ],
+        "peakIds": [
+          "P2",
+          "P3",
+          "P4"
+        ],
+        "score": 2.3,
+        "coverage": 0.6,
+        "unexplained": [
+          "P1",
+          "P5"
+        ],
+        "assignments": [
+          {
+            "peakId": "P1",
+            "nuclides": []
+          },
+          {
+            "peakId": "P2",
+            "nuclides": [
+              "Co-60"
+            ]
+          },
+          {
+            "peakId": "P3",
+            "nuclides": [
+              "Co-60"
+            ]
+          },
+          {
+            "peakId": "P4",
+            "nuclides": [
+              "K-40"
+            ]
+          },
+          {
+            "peakId": "P5",
+            "nuclides": []
+          }
+        ]
+      },
+      {
+        "nuclides": [
+          "Co-60"
+        ],
+        "peakIds": [
+          "P2",
+          "P3"
+        ],
+        "score": 1.65,
+        "coverage": 0.4,
+        "unexplained": [
+          "P1",
+          "P4",
+          "P5"
+        ],
+        "assignments": [
+          {
+            "peakId": "P1",
+            "nuclides": []
+          },
+          {
+            "peakId": "P2",
+            "nuclides": [
+              "Co-60"
+            ]
+          },
+          {
+            "peakId": "P3",
+            "nuclides": [
+              "Co-60"
+            ]
+          },
+          {
+            "peakId": "P4",
+            "nuclides": []
+          },
+          {
+            "peakId": "P5",
+            "nuclides": []
+          }
+        ]
+      },
+      {
+        "nuclides": [
+          "K-40",
+          "Cs-137"
+        ],
+        "peakIds": [
+          "P1",
+          "P4"
+        ],
+        "score": 1.3,
+        "coverage": 0.4,
+        "unexplained": [
+          "P2",
+          "P3",
+          "P5"
+        ],
+        "assignments": [
+          {
+            "peakId": "P1",
+            "nuclides": [
+              "Cs-137"
+            ]
+          },
+          {
+            "peakId": "P2",
+            "nuclides": []
+          },
+          {
+            "peakId": "P3",
+            "nuclides": []
+          },
+          {
+            "peakId": "P4",
+            "nuclides": [
+              "K-40"
+            ]
+          },
+          {
+            "peakId": "P5",
+            "nuclides": []
+          }
+        ]
+      },
+      {
+        "nuclides": [
+          "Cs-137"
+        ],
+        "peakIds": [
+          "P1"
+        ],
+        "score": 0.65,
+        "coverage": 0.2,
+        "unexplained": [
+          "P2",
+          "P3",
+          "P4",
+          "P5"
+        ],
+        "assignments": [
+          {
+            "peakId": "P1",
+            "nuclides": [
+              "Cs-137"
+            ]
+          },
+          {
+            "peakId": "P2",
+            "nuclides": []
+          },
+          {
+            "peakId": "P3",
+            "nuclides": []
+          },
+          {
+            "peakId": "P4",
+            "nuclides": []
+          },
+          {
+            "peakId": "P5",
+            "nuclides": []
+          }
+        ]
+      },
+      {
+        "nuclides": [
+          "K-40"
+        ],
+        "peakIds": [
+          "P4"
+        ],
+        "score": 0.65,
+        "coverage": 0.2,
+        "unexplained": [
+          "P1",
+          "P2",
+          "P3",
+          "P5"
+        ],
+        "assignments": [
+          {
+            "peakId": "P1",
+            "nuclides": []
+          },
+          {
+            "peakId": "P2",
+            "nuclides": []
+          },
+          {
+            "peakId": "P3",
+            "nuclides": []
+          },
+          {
+            "peakId": "P4",
+            "nuclides": [
+              "K-40"
+            ]
+          },
+          {
+            "peakId": "P5",
+            "nuclides": []
+          }
+        ]
+      }
+    ],
+    "truncated": false,
+    "searched": 7
+  },
+  "coverage": {
+    "totalPeaks": 5,
+    "explainedPeaks": 4,
+    "peakFraction": 0.8,
+    "unexplainedPeakFraction": 0.19999999999999996,
+    "totalIndependentGroups": 5,
+    "explainedGroups": 4,
+    "groupFraction": 0.8,
+    "weightedCoverage": 0.8,
+    "listedNetAreaFraction": 0.992357661444402,
+    "note": "Coverage is not an identification probability. Listed net peak areas exclude continuum and all unlisted counts; they do not measure the fraction of total spectrum counts."
+  },
+  "hypotheses": [
+    {
+      "nuclides": [
+        "Co-60",
+        "K-40",
+        "Cs-137"
+      ],
+      "lineCount": 4,
+      "logLikelihood": -11.607980828619905,
+      "deltaDeviance": 0,
+      "relativeLikelihood": 1,
+      "status": "Preferred under the stated conditional model. Conditional centroid density; line-selection, database coverage, and fixed clutter assumptions limit interpretation."
+    },
+    {
+      "nuclides": [
+        "Co-60",
+        "Cs-137"
+      ],
+      "lineCount": 3,
+      "logLikelihood": -20.75726158023679,
+      "deltaDeviance": 18.29856150323377,
+      "relativeLikelihood": 0.0001062962286491477,
+      "status": "Less supported under the stated conditional model. Conditional centroid density; line-selection, database coverage, and fixed clutter assumptions limit interpretation."
+    },
+    {
+      "nuclides": [
+        "Co-60",
+        "K-40"
+      ],
+      "lineCount": 3,
+      "logLikelihood": -21.08546955546874,
+      "deltaDeviance": 18.954977453697673,
+      "relativeLikelihood": 0.00007655594885598594,
+      "status": "Less supported under the stated conditional model. Conditional centroid density; line-selection, database coverage, and fixed clutter assumptions limit interpretation."
+    },
+    {
+      "nuclides": [
+        "K-40",
+        "Cs-137"
+      ],
+      "lineCount": 2,
+      "logLikelihood": -30.547803482308865,
+      "deltaDeviance": 37.87964530737792,
+      "relativeLikelihood": 5.950309192047791e-9,
+      "status": "Less supported under the stated conditional model. Conditional centroid density; line-selection, database coverage, and fixed clutter assumptions limit interpretation."
+    },
+    {
+      "nuclides": [
+        "Co-60"
+      ],
+      "lineCount": 2,
+      "logLikelihood": -30.57452909502337,
+      "deltaDeviance": 37.93309653280693,
+      "relativeLikelihood": 5.793389757047042e-9,
+      "status": "Less supported under the stated conditional model. Conditional centroid density; line-selection, database coverage, and fixed clutter assumptions limit interpretation."
+    },
+    {
+      "nuclides": [
+        "Cs-137"
+      ],
+      "lineCount": 1,
+      "logLikelihood": -40.56008874364371,
+      "deltaDeviance": 57.90421583004761,
+      "relativeLikelihood": 2.6684513726528976e-13,
+      "status": "Less supported under the stated conditional model. Conditional centroid density; line-selection, database coverage, and fixed clutter assumptions limit interpretation."
+    },
+    {
+      "nuclides": [
+        "K-40"
+      ],
+      "lineCount": 1,
+      "logLikelihood": -40.8883029925789,
+      "deltaDeviance": 58.56064432791799,
+      "relativeLikelihood": 1.9218418920500967e-13,
+      "status": "Less supported under the stated conditional model. Conditional centroid density; line-selection, database coverage, and fixed clutter assumptions limit interpretation."
+    }
+  ],
+  "conclusions": [
+    {
+      "nuclide": "Co-60",
+      "status": "Supported",
+      "supportingLines": 2,
+      "exclusiveLines": 2,
+      "contradictions": 0,
+      "reason": "2 independent support(s), 2 exclusive group(s), 0 conditional contradiction(s)."
+    },
+    {
+      "nuclide": "K-40",
+      "status": "Tentative",
+      "supportingLines": 1,
+      "exclusiveLines": 1,
+      "contradictions": 0,
+      "reason": "1 independent support(s), 1 exclusive group(s), 0 conditional contradiction(s). One line is insufficient for a multi-line identification."
+    },
+    {
+      "nuclide": "Cs-137",
+      "status": "Tentative",
+      "supportingLines": 1,
+      "exclusiveLines": 1,
+      "contradictions": 0,
+      "reason": "1 independent support(s), 1 exclusive group(s), 0 conditional contradiction(s). One line is insufficient for a multi-line identification."
+    }
+  ],
+  "warnings": [
+    "This application provides research-oriented gamma-ray isotope identification support. Candidate identifications are not definitive without suitable measurement quality, calibrated detector response, validated analysis methods, and expert review.",
+    "Evidence scores and verbal classifications are uncalibrated research rules, not probabilities or statistical confidence levels.",
+    "This is a finite, filtered 11-parent-state library. Other nuclides, artefacts, escape peaks, sum peaks, and background can explain observations.",
+    "No activity fractions or nuclide concentrations are inferred.",
+    "The peak list has not been declared complete above a known threshold. Unobserved lines are not negative evidence."
+  ],
+  "validation": {
+    "independentExperimentalValidation": false,
+    "classificationsCalibrated": false
+  },
+  "modelAssumptions": {
+    "ranking": "10 points per independent support + 3 per exclusive group + 2×mean energy agreement",
+    "mixture": "Maximum externally weighted group coverage minus 0.35 per component; top 12 candidates, at most 4 components",
+    "hypothesis": "Equal reference-line Gaussian centroid mixture with fixed inlier fraction and uniform clutter on the declared range; common calibration nuisance integrated. Relative likelihoods are not posterior probabilities."
+  }
+}

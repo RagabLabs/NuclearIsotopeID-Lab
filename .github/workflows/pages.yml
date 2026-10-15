@@ -1,0 +1,53 @@
+# Publication is manual only. No push, pull_request or schedule can deploy this site.
+name: Publish GitHub Pages (manual approval)
+on:
+  workflow_dispatch:
+    inputs:
+      approve_publish:
+        description: 'I explicitly authorize publishing this revision to GitHub Pages'
+        required: true
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    if: ${{ inputs.approve_publish == true }}
+    runs-on: ubuntu-latest
+    env:
+      VITE_BASE: /NuclearIsotopeID-Lab/
+      PLAYWRIGHT_BASE_URL: http://127.0.0.1:4173/NuclearIsotopeID-Lab/
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:data
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run build
+        env:
+          VITE_BASE: /NuclearIsotopeID-Lab/
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

@@ -1,0 +1,50 @@
+import type {GammaLine,IdentificationStatus,Peak,Settings} from './types';
+import {validatePeaks,validateSettings,validateReference} from './validation';
+import {matchGammaLines} from './energyMatching';
+import {rankCandidates} from './candidateRanking';
+import {multilineConsistency} from './multilineConsistency';
+import {analyzeMissingLines} from './missingLines';
+import {analyzeAmbiguity} from './ambiguity';
+import {intensityConsistency} from './intensityConsistency';
+import {attributeMixtures} from './mixtureAttribution';
+import {evidenceCoverage} from './evidenceCoverage';
+import {compareHypotheses} from './hypothesisComparison';
+import {database} from './gammaDatabase';
+export const RESEARCH_WARNING='This application provides research-oriented gamma-ray isotope identification support. Candidate identifications are not definitive without suitable measurement quality, calibrated detector response, validated analysis methods, and expert review.';
+export function analyzeIdentification(peaks:Peak[],lines:GammaLine[],settings:Settings,extraHypotheses:string[][]=[],inputProvenance='User-supplied peak list'){
+ const errors=[...validatePeaks(peaks),...validateSettings(settings),...validateReference(lines)];
+ if(errors.length)throw new Error(errors.join('\n'));
+ const matching=matchGammaLines(peaks,lines,settings),candidates=rankCandidates(matching);
+ const details=candidates.map(candidate=>{
+  const missing=analyzeMissingLines(candidate,peaks,matching,lines,settings);
+  const intensity=intensityConsistency(candidate,peaks,matching,settings);
+  return {nuclide:candidate.nuclide,consistency:multilineConsistency(candidate.assignments,settings),missing,intensity,contradictions:missing.filter(m=>m.state==='expected-not-seen').length+intensity.ratios.filter(r=>r.z!==null&&Math.abs(r.z)>3).length};
+ });
+ for(const c of candidates)c.missingCount=details.find(d=>d.nuclide===c.nuclide)!.missing.filter(m=>m.state==='expected-not-seen').length;
+ const ambiguity=analyzeAmbiguity(matching,candidates,lines,settings);
+ const mixture=attributeMixtures(candidates,matching,peaks,settings);
+ const best=mixture.mixtures[0];
+ const coverage=evidenceCoverage(peaks,best?.peakIds??[],matching.groups);
+ const hyps=[...mixture.mixtures.slice(0,5).map(m=>m.nuclides),...candidates.slice(0,4).map(c=>[c.nuclide]),...extraHypotheses];
+ const uniqueHypotheses=hyps.filter((h,i)=>hyps.findIndex(x=>[...x].sort().join('|')===[...h].sort().join('|'))===i);
+ const hypotheses=compareHypotheses(uniqueHypotheses,peaks,lines,settings);
+ const conclusions=candidates.map(c=>{
+  const d=details.find(d=>d.nuclide===c.nuclide)!;let status:IdentificationStatus='Tentative';
+  const strongEnergy=c.assignments.every(m=>m.z!==null&&Math.abs(m.z)<2);
+  const hasIntensity=d.intensity.ratios.some(r=>r.z!==null)&&d.intensity.ratios.every(r=>r.z!==null&&Math.abs(r.z)<=3);
+  const rival=candidates.some(other=>other.nuclide!==c.nuclide&&other.independentLines>=c.independentLines&&c.assignments.every(m=>other.assignments.some(a=>a.peakId===m.peakId)));
+  if(c.uniqueLines===0||rival)status='Ambiguous';
+  else if(c.independentLines>=3&&c.uniqueLines>=3&&strongEnergy&&hasIntensity&&d.contradictions===0)status='Strongly Supported';
+  else if(c.independentLines>=2&&c.uniqueLines>=2&&strongEnergy&&d.contradictions===0)status='Supported';
+  if(d.contradictions>0&&status!=='Ambiguous')status='Tentative';
+  return {nuclide:c.nuclide,status,supportingLines:c.independentLines,exclusiveLines:c.uniqueLines,contradictions:d.contradictions,reason:`${c.independentLines} independent support(s), ${c.uniqueLines} exclusive group(s), ${d.contradictions} conditional contradiction(s). ${c.independentLines<2?'One line is insufficient for a multi-line identification.':''} ${!strongEnergy?'Complete near-zero normalized energy residuals are unavailable.':''}`.trim()};
+ });
+ const status:IdentificationStatus=!candidates.length?'Insufficient Evidence':conclusions.some(c=>c.status==='Strongly Supported')?'Strongly Supported':conclusions.some(c=>c.status==='Supported')?'Supported':conclusions.every(c=>c.status==='Ambiguous')?'Ambiguous':'Tentative';
+ const warnings=[RESEARCH_WARNING,'Evidence scores and verbal classifications are uncalibrated research rules, not probabilities or statistical confidence levels.','This is a finite, filtered 11-parent-state library. Other nuclides, artefacts, escape peaks, sum peaks, and background can explain observations.','No activity fractions or nuclide concentrations are inferred.',...matching.warnings];
+ if(settings.intensityModelRelativeUncertainty===undefined)warnings.push('Additional response-model ratio uncertainty has not been assessed. Ratio point estimates may be shown, but no ratio z score or quantitative missing-line evidence is produced.');
+ if(!settings.efficiency.length)warnings.push('No full-energy detector-efficiency model supplied. Intensity and missing-line conclusions are limited.');
+ if(!settings.peakListComplete)warnings.push('The peak list has not been declared complete above a known threshold. Unobserved lines are not negative evidence.');
+ if(mixture.truncated)warnings.push('Mixture search is limited to the top 12 ranked candidates; omitted candidates can change the explanation.');
+ return {appVersion:'1.0.0',dataVersion:database.version,createdAt:new Date().toISOString(),inputProvenance,label:'Research evidence report; not a definitive isotope certificate',status,peaks,settings,reference:{version:database.version,lines:lines.length,nuclides:[...new Set(lines.map(l=>l.nuclide))],sources:[...new Set(lines.map(l=>l.sourceUrl))],manifest:database.nuclides,sourceSnapshotStatement:database.sourceSnapshotStatement},matching,candidates,details,ambiguity,mixture,coverage,hypotheses,conclusions,warnings,validation:{independentExperimentalValidation:false,classificationsCalibrated:false},modelAssumptions:{ranking:'10 points per independent support + 3 per exclusive group + 2×mean energy agreement',mixture:'Maximum externally weighted group coverage minus 0.35 per component; top 12 candidates, at most 4 components',hypothesis:'Equal reference-line Gaussian centroid mixture with fixed inlier fraction and uniform clutter on the declared range; common calibration nuisance integrated. Relative likelihoods are not posterior probabilities.'}};
+}
+export type AnalysisReport=ReturnType<typeof analyzeIdentification>;

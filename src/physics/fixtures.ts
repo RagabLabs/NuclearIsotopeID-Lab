@@ -1,0 +1,8 @@
+/** Analytical simulation fixtures only. Sim-A/B/C are NOT real nuclear reference data. */
+import type {GammaLine,Peak,Settings} from './types';
+import {defaultSettings} from './validation';
+export function line(id:string,nuclide:string,energyKeV:number,emissionProbability:number|null=.5,energyUncertaintyKeV:number|null=0):GammaLine{return {id,nuclide,daughter:'Simulated-daughter',radiationType:'gamma',energyKeV,energyUncertaintyKeV,emissionProbability,emissionProbabilityUncertainty:emissionProbability===null?null:0,transitionId:id,startLevelKeV:energyKeV,endLevelKeV:0,parentLevelKeV:0,decayMode:'simulated',intensityKind:'absolute-photons-per-parent-transformation',source:'Analytical simulation fixture, not a nuclide evaluation',evaluationVersion:'fixture-1',sourceUrl:'https://example.invalid/analytical-test-fixture',dataStatus:'SIMULATED-TEST-ONLY'}}
+export const lines=[line('a1','Sim-A',100,.5),line('a2','Sim-A',200,.25),line('b1','Sim-B',100.1,.5),line('b2','Sim-B',300,.5),line('c1','Sim-C',400,.2)];
+export function peak(id:string,energyKeV:number,more:Partial<Peak>={}):Peak{return {id,energyKeV,energyUncertaintyKeV:.1,...more}}
+export function config(more:Partial<Settings>={}):Settings{return {...defaultSettings,calibrationUncertaintyKnown:true,intensityModelRelativeUncertainty:0,minProbability:0,energyMaxKeV:1000,...more}}
+export const highResponse=config({efficiency:[{energyKeV:50,efficiency:.1,uncertainty:.001},{energyKeV:100,efficiency:.1,uncertainty:.001},{energyKeV:200,efficiency:.2,uncertainty:.002},{energyKeV:400,efficiency:.2,uncertainty:.002},{energyKeV:1000,efficiency:.2,uncertainty:.002}],summingAssumption:'negligible',detectionThresholdCounts:20,peakListComplete:true});

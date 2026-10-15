@@ -1,0 +1,17 @@
+import {JSDOM,VirtualConsole} from 'jsdom';
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const html=fs.readFileSync('dist/NuclearIsotopeID-Lab.html','utf8');const errors=[];
+const vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e.message));
+const dom=new JSDOM(html,{url:'file:///local/NuclearIsotopeID-Lab.html',runScripts:'dangerously',pretendToBeVisual:true,virtualConsole:vc,beforeParse(window){window.scrollTo=()=>{};window.URL.createObjectURL=()=> 'blob:test';window.URL.revokeObjectURL=()=>{}}});
+const wait=()=>new Promise(resolve=>setTimeout(resolve,200));await wait();
+const doc=dom.window.document;
+assert.equal(doc.querySelector('h1')?.textContent,'Isotope identification');
+assert(doc.querySelector('svg[data-export-chart="spectrum"]'));
+assert(doc.body.textContent.includes('Co-60'));
+const arabic=[...doc.querySelectorAll('button')].find(b=>b.getAttribute('aria-label')==='العربية');arabic.click();await wait();assert.equal(doc.documentElement.dir,'rtl');
+const en=[...doc.querySelectorAll('button')].find(b=>b.getAttribute('aria-label')==='English');en.click();await wait();
+const run=[...doc.querySelectorAll('button')].find(b=>b.textContent.includes('Run identification'));run.click();await wait();assert.equal(doc.querySelector('[role="alert"]'),null);
+assert.equal(errors.length,0,errors.join('\n'));
+const summary={status:'PASS',runtime:'jsdom DOM execution, not a real browser or visual/layout check',opaqueFileOrigin:true,standaloneBytes:Buffer.byteLength(html),checks:['production IIFE executes without external module imports','file-origin storage restrictions do not prevent startup','default scientific results render','SVG chart renders as DOM','Arabic RTL and English controls work','run-identification handler works'],errors};
+fs.mkdirSync('test-results',{recursive:true});fs.writeFileSync('test-results/standalone-dom.json',JSON.stringify(summary,null,2)+'\n');console.log(JSON.stringify(summary,null,2));dom.window.close();

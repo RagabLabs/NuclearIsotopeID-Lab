@@ -1,0 +1,76 @@
+{
+  "time": "2026-10-15T08:59:36.158Z",
+  "databaseVersion": "IAEA-LiveChart-ENSDF-subset-2026-10-14",
+  "nuclides": 11,
+  "gammaLines": 667,
+  "checks": [
+    {
+      "nuclide": "Co-60",
+      "lines": 6,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    },
+    {
+      "nuclide": "Cs-137",
+      "lines": 2,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    },
+    {
+      "nuclide": "Na-22",
+      "lines": 1,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    },
+    {
+      "nuclide": "Eu-152",
+      "lines": 173,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    },
+    {
+      "nuclide": "Ba-133",
+      "lines": 9,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    },
+    {
+      "nuclide": "Am-241",
+      "lines": 128,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    },
+    {
+      "nuclide": "I-131",
+      "lines": 19,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    },
+    {
+      "nuclide": "Tc-99m",
+      "lines": 5,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    },
+    {
+      "nuclide": "K-40",
+      "lines": 1,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    },
+    {
+      "nuclide": "Bi-214",
+      "lines": 302,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    },
+    {
+      "nuclide": "Pb-214",
+      "lines": 21,
+      "sourceHash": "PASS",
+      "sourceRowsAndNormalization": "PASS"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

@@ -1,0 +1,40 @@
+name: Scientific and application checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Validate source hashes and every reference record
+        run: npm run validate:data
+      - name: Verify offline importer reproducibility
+        run: |
+          python3 scripts/import_iaea.py
+          git diff --exit-code -- src/data/gamma-lines.json data/manifest.json data/gamma-lines.csv
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run build
+      - run: node scripts/check-standalone.mjs
+      - name: Install Chromium for the CI-only browser tests
+        run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - name: Retain verification records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-records
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 14

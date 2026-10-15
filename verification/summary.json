@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-10-15T08:59:46.640Z",
+  "testFiles": 8,
+  "vitestTotal": 115,
+  "vitestPassed": 115,
+  "vitestFailed": 0,
+  "scientificTests": 81,
+  "parserTests": 21,
+  "reactDomTests": 13,
+  "calculationAuditPassed": 10,
+  "nuclides": 11,
+  "gammaLines": 667,
+  "browserConfigured": 18,
+  "browserExecuted": 0,
+  "browserNotExecuted": 18,
+  "publicationPerformed": false,
+  "experimentalCampaign": false
+}

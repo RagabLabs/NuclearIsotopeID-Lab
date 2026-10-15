@@ -1,0 +1,74 @@
+{
+  "createdAt": "2026-10-15T08:59:46.640Z",
+  "node": "v24.19.0",
+  "records": [
+    {
+      "command": "npm ci",
+      "exitCode": 0,
+      "durationMs": 3984,
+      "stdout": "\nadded 133 packages in 4s\n",
+      "stderr": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run validate:data",
+      "exitCode": 0,
+      "durationMs": 186,
+      "stdout": "\n> nuclear-isotope-id-lab@1.0.0 validate:data\n> node scripts/validate-data.mjs\n\n{\n  \"time\": \"2026-10-15T08:59:36.158Z\",\n  \"databaseVersion\": \"IAEA-LiveChart-ENSDF-subset-2026-10-14\",\n  \"nuclides\": 11,\n  \"gammaLines\": 667,\n  \"checks\": [\n    {\n      \"nuclide\": \"Co-60\",\n      \"lines\": 6,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    },\n    {\n      \"nuclide\": \"Cs-137\",\n      \"lines\": 2,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    },\n    {\n      \"nuclide\": \"Na-22\",\n      \"lines\": 1,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    },\n    {\n      \"nuclide\": \"Eu-152\",\n      \"lines\": 173,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    },\n    {\n      \"nuclide\": \"Ba-133\",\n      \"lines\": 9,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    },\n    {\n      \"nuclide\": \"Am-241\",\n      \"lines\": 128,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    },\n    {\n      \"nuclide\": \"I-131\",\n      \"lines\": 19,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    },\n    {\n      \"nuclide\": \"Tc-99m\",\n      \"lines\": 5,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    },\n    {\n      \"nuclide\": \"K-40\",\n      \"lines\": 1,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    },\n    {\n      \"nuclide\": \"Bi-214\",\n      \"lines\": 302,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    },\n    {\n      \"nuclide\": \"Pb-214\",\n      \"lines\": 21,\n      \"sourceHash\": \"PASS\",\n      \"sourceRowsAndNormalization\": \"PASS\"\n    }\n  ],\n  \"errors\": [],\n  \"status\": \"PASS\"\n}\n",
+      "stderr": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "python3 scripts/import_iaea.py",
+      "exitCode": 0,
+      "durationMs": 80,
+      "stdout": "{\n  \"nuclides\": 11,\n  \"lines\": 667,\n  \"byNuclide\": {\n    \"Co-60\": 6,\n    \"Cs-137\": 2,\n    \"Na-22\": 1,\n    \"Eu-152\": 173,\n    \"Ba-133\": 9,\n    \"Am-241\": 128,\n    \"I-131\": 19,\n    \"Tc-99m\": 5,\n    \"K-40\": 1,\n    \"Bi-214\": 302,\n    \"Pb-214\": 21\n  },\n  \"output\": \"/workspace/scratch/c767a3757a71/NuclearIsotopeID-Lab/src/data/gamma-lines.json\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "durationMs": 5511,
+      "stdout": "\n> nuclear-isotope-id-lab@1.0.0 test\n> vitest run\n\n\n RUN  v5.0.4 /workspace/scratch/c767a3757a71/NuclearIsotopeID-Lab\n\n ✓ src/io/importPeaks.test.ts (21 tests) 11ms\n ✓ src/physics/energyMatching.test.ts (12 tests) 8ms\n ✓ src/physics/hypothesisComparison.test.ts (9 tests) 9ms\n ✓ src/physics/response.test.ts (16 tests) 15ms\n ✓ src/physics/evidence.test.ts (15 tests) 17ms\n ✓ src/physics/identificationReport.test.ts (25 tests) 39ms\n ✓ src/physics/referenceData.test.ts (4 tests) 5ms\n ✓ src/test/App.test.tsx (13 tests) 3729ms\n   ✓ Bilingual React interaction checks (jsdom; not browser layout tests) (13)\n     ✓ navigates every one of the ten tool pages 539ms\n     ✓ shows Home, reference data, scientific documentation, and About 717ms\n     ✓ supports manual entry and adding/removing peaks 432ms\n     ✓ filters reference data by nuclide and energy 496ms\n\n Test Files  8 passed (8)\n      Tests  115 passed (115)\n   Start at  10:59:36\n   Duration  5.12s (environment 41%, tests 33%, transform 15%, setup 6%, import 4%)\n\nJSON report written to /workspace/scratch/c767a3757a71/NuclearIsotopeID-Lab/test-results/vitest.json\n",
+      "stderr": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "durationMs": 617,
+      "stdout": "\n> nuclear-isotope-id-lab@1.0.0 typecheck\n> tsc -b --pretty false\n\n",
+      "stderr": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "durationMs": 1705,
+      "stdout": "\n> nuclear-isotope-id-lab@1.0.0 build\n> tsc -b && vite build && node scripts/build-standalone.mjs\n\nvite v8.3.4 building client environment for production...\ntransforming...\n✓ 2147 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                           0.65 kB │ gzip:   0.40 kB\ndist/assets/index-Bdfa-_og.css           30.65 kB │ gzip:   7.18 kB\ndist/assets/purify.es-BZxk_wWO.js        29.02 kB │ gzip:  11.45 kB\ndist/assets/index.es-Dhjggn9l.js        151.42 kB │ gzip:  48.91 kB\ndist/assets/html2canvas-CAEjVNqe.js     199.45 kB │ gzip:  46.76 kB\ndist/assets/jspdf.es.min-BzMsGn23.js    398.95 kB │ gzip: 129.62 kB\ndist/assets/index-DTYMNZT8.js           844.14 kB │ gzip: 137.68 kB\ndist/assets/pdf-font-BuJlFn8A.js      1,013.00 kB │ gzip: 478.10 kB\n\n✓ built in 323ms\nvite v8.3.4 building client environment for production...\ntransforming...\n✓ 2144 modules transformed.\nrendering chunks...\ncomputing gzip size...\ntmp/standalone/nuclear-isotope-id-lab.css     30.66 kB │ gzip:   7.19 kB\ntmp/standalone/lab.js                      2,638.35 kB │ gzip: 855.45 kB\n\n✓ built in 449ms\nStandalone file: 2720024 bytes\n",
+      "stderr": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "node scripts/check-standalone.mjs",
+      "exitCode": 0,
+      "durationMs": 1801,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"runtime\": \"jsdom DOM execution, not a real browser or visual/layout check\",\n  \"opaqueFileOrigin\": true,\n  \"standaloneBytes\": 2720024,\n  \"checks\": [\n    \"production IIFE executes without external module imports\",\n    \"file-origin storage restrictions do not prevent startup\",\n    \"default scientific results render\",\n    \"SVG chart renders as DOM\",\n    \"Arabic RTL and English controls work\",\n    \"run-identification handler works\"\n  ],\n  \"errors\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": "npx playwright test --list",
+      "exitCode": 0,
+      "durationMs": 753,
+      "stdout": "Listing tests:\n  [chromium-desktop] › workspace.spec.ts:4:1 › simulation, candidates, evidence and rendered chart\n  [chromium-desktop] › workspace.spec.ts:5:1 › CSV file upload and analysis\n  [chromium-desktop] › workspace.spec.ts:6:1 › manual energy entry\n  [chromium-desktop] › workspace.spec.ts:7:1 › candidate ranking and all evidence tools\n  [chromium-desktop] › workspace.spec.ts:8:1 › Arabic English and theme controls\n  [chromium-desktop] › workspace.spec.ts:9:1 › PDF download\n  [chromium-desktop] › workspace.spec.ts:10:1 › CSV download\n  [chromium-desktop] › workspace.spec.ts:11:1 › PNG chart download\n  [chromium-desktop] › workspace.spec.ts:12:1 › reference search and responsive overflow\n  [chromium-mobile] › workspace.spec.ts:4:1 › simulation, candidates, evidence and rendered chart\n  [chromium-mobile] › workspace.spec.ts:5:1 › CSV file upload and analysis\n  [chromium-mobile] › workspace.spec.ts:6:1 › manual energy entry\n  [chromium-mobile] › workspace.spec.ts:7:1 › candidate ranking and all evidence tools\n  [chromium-mobile] › workspace.spec.ts:8:1 › Arabic English and theme controls\n  [chromium-mobile] › workspace.spec.ts:9:1 › PDF download\n  [chromium-mobile] › workspace.spec.ts:10:1 › CSV download\n  [chromium-mobile] › workspace.spec.ts:11:1 › PNG chart download\n  [chromium-mobile] › workspace.spec.ts:12:1 › reference search and responsive overflow\nTotal: 18 tests in 1 file\n",
+      "stderr": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    }
+  ],
+  "offlineReconstruction": {
+    "byteIdentical": true,
+    "files": {
+      "src/data/gamma-lines.json": "a897ee120ac0b61516a298ceea0521c05a854985d35deee69280c9cc1a192b15",
+      "data/gamma-lines.csv": "2a8f102a9810d1db8d459157aff5a45765c7b40472a0b38a355bc3f27f0e49f1",
+      "data/manifest.json": "67e4d627e14e604534f52b5fad0b19ddeeff452eea877394b34eeee8ebdfd5f0"
+    }
+  },
+  "browserExecution": {
+    "status": "NOT RUN",
+    "reason": "Supported browser-control capability unavailable in the preparation environment. Listing configured Playwright scenarios is not executing them."
+  }
+}

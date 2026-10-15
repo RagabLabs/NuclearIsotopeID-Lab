@@ -1,0 +1,20 @@
+import {describe,it,expect} from 'vitest';
+import {parsePeaks,parseDelimited,parseEfficiency} from './importPeaks';
+describe('CSV / TSV / JSON import and explicit units',()=>{
+ it('reads CSV energies, uncertainties and detector metadata',()=>{const p=parsePeaks('energy_keV,energy_uncertainty_keV,net_peak_area,detector_id\n661.657,0.1,1234,HPGe','csv')[0];expect(p.energyKeV).toBe(661.657);expect(p.energyUncertaintyKeV).toBe(.1);expect(p.area).toBe(1234);expect(p.detectorId).toBe('HPGe')});
+ it('reads TSV with missing optional fields',()=>{const p=parsePeaks('energy\tuncertainty\n100\t','tsv')[0];expect(p.energyKeV).toBe(100);expect(p.energyUncertaintyKeV).toBeUndefined()});
+ it('converts MeV generic inputs to keV',()=>{expect(parsePeaks('energy,uncertainty\n1.173228,0.0001','csv','MeV')[0].energyKeV).toBeCloseTo(1173.228)});
+ it('explicit keV headers override the generic selector without unit corruption',()=>{const p=parsePeaks('energy_keV,energy_uncertainty_keV\n100,0.1','csv','MeV')[0];expect(p.energyKeV).toBe(100);expect(p.energyUncertaintyKeV).toBe(.1)});
+ it('respects explicit uncertainty units separately from energy units',()=>{const p=parsePeaks('energy_MeV,energy_uncertainty_keV\n1,0.1','csv')[0];expect(p.energyKeV).toBe(1000);expect(p.energyUncertaintyKeV).toBe(.1)});
+ it('honors per-field MeV/eV units in JSON',()=>{const p=parsePeaks('[{"energy_MeV":0.661657,"energy_uncertainty_eV":100}]','json')[0];expect(p.energyKeV).toBeCloseTo(661.657,10);expect(p.energyUncertaintyKeV).toBe(.1)});
+ it('honors explicit eV uncertainty in MeV CSV input',()=>{const p=parsePeaks('energy_MeV,energy_uncertainty_eV\n1,100','csv')[0];expect(p.energyKeV).toBe(1000);expect(p.energyUncertaintyKeV).toBe(.1)});
+ it('rejects duplicate efficiency column labels',()=>{expect(()=>parseEfficiency('energy_keV,efficiency,efficiency\n100,0.1,0.2')).toThrow('Duplicate')});
+ it('accepts JSON peak objects and optional global units',()=>{const ps=parsePeaks('{"energyUnit":"MeV","peaks":[{"energy":0.1,"area":40}]}','json');expect(ps[0].energyKeV).toBe(100)});
+ it('preserves energyKeV in JSON despite a conflicting selector',()=>{expect(parsePeaks('[{"id":"x","energyKeV":100}]','json','MeV')[0].energyKeV).toBe(100)});
+ it('supports quoted newlines, escaped quotes and BOM',()=>{expect(parseDelimited('\uFEFFa,b\r\n"x\ny","a""b"')).toEqual([['a','b'],['x\ny','a"b']])});
+ it.each(['energy\n-1','energy\nNaN','energy\nInfinity','energy,area\n100','channel,counts\n1,3','energy,energy\n1,2'])('rejects invalid or raw-channel CSV: %s',value=>{expect(()=>parsePeaks(value,'csv')).toThrow()});
+ it('rejects ambiguous duplicate energy aliases',()=>{expect(()=>parsePeaks('energy,energy_keV\n100,200','csv')).toThrow('more than one')});
+ it('rejects unclosed quotes',()=>{expect(()=>parseDelimited('a\n"bad')).toThrow('Unclosed')});
+ it('does not create a Poisson area uncertainty for background-subtracted net counts',()=>{expect(parsePeaks('energy,area\n100,2','csv')[0].areaUncertainty).toBeUndefined()});
+ it('parses response corrections and their supplied uncertainties',()=>{expect(parseEfficiency('energy_keV,efficiency,uncertainty,summing_factor,summing_uncertainty\n100,0.1,0.01,0.9,0.02')[0]).toEqual({energyKeV:100,efficiency:.1,uncertainty:.01,summingFactor:.9,summingUncertainty:.02})});
+});

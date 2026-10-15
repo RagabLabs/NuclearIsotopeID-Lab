@@ -1,0 +1,12 @@
+import {build} from 'vite';
+import react from '@vitejs/plugin-react';
+import fs from 'node:fs';
+import path from 'node:path';
+const out=path.resolve('tmp/standalone');
+await build({configFile:false,plugins:[react()],define:{'process.env.NODE_ENV':JSON.stringify('production')},build:{outDir:out,emptyOutDir:true,target:'es2022',cssCodeSplit:false,lib:{entry:path.resolve('src/main.tsx'),name:'NuclearIsotopeID',formats:['iife'],fileName:()=> 'lab.js'},chunkSizeWarningLimit:3000}});
+const js=fs.readFileSync(path.join(out,'lab.js'),'utf8').replace(/<\/script/gi,'<\\/script');
+const css=fs.readdirSync(out).filter(f=>f.endsWith('.css')).map(f=>fs.readFileSync(path.join(out,f),'utf8')).join('\n');
+const notices=fs.existsSync('public/THIRD-PARTY-NOTICES.txt')?fs.readFileSync('public/THIRD-PARTY-NOTICES.txt','utf8').replace(/--/g,'- -'):'';
+const html=`<!doctype html><!-- ${notices} --><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101c28"><title>Nuclear Isotope Identification Lab</title><style>${css}</style></head><body><div id="root"></div><script>${js}</script></body></html>`;
+fs.mkdirSync('dist',{recursive:true});fs.writeFileSync('dist/NuclearIsotopeID-Lab.html',html);console.log(`Standalone file: ${Buffer.byteLength(html)} bytes`);
+fs.rmSync(out,{recursive:true,force:true});

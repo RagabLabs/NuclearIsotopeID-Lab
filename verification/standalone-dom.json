@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "runtime": "jsdom DOM execution, not a real browser or visual/layout check",
+  "opaqueFileOrigin": true,
+  "standaloneBytes": 2720024,
+  "checks": [
+    "production IIFE executes without external module imports",
+    "file-origin storage restrictions do not prevent startup",
+    "default scientific results render",
+    "SVG chart renders as DOM",
+    "Arabic RTL and English controls work",
+    "run-identification handler works"
+  ],
+  "errors": []
+}

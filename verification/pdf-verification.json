@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "pdfChecks": [
+    {
+      "file": "Scientific-Validation-Report.pdf",
+      "pages": 14,
+      "outsidePageWords": [],
+      "visualReview": "Rendered pages and contact sheets inspected; no clipping or overlap observed."
+    },
+    {
+      "file": "Example-Evidence-Report.pdf",
+      "pages": 7,
+      "outsidePageWords": [],
+      "visualReview": "Rendered pages and contact sheets inspected; no clipping or overlap observed."
+    }
+  ],
+  "pdfCsvJsonSnapshotConsistency": "PASS",
+  "realBrowserDownload": "NOT RUN",
+  "canvasPngExport": "NOT RUN"
+}

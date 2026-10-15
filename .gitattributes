@@ -1,0 +1,6 @@
+* text=auto eol=lf
+# Preserve the exact data bytes that are covered by SHA-256 checks.
+data/raw/*.csv -text
+data/gamma-lines.csv -text
+*.pdf -text
+*.zip -text

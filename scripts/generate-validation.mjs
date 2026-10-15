@@ -1,0 +1,14 @@
+import {build} from 'vite';
+import fs from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+await build({configFile:false,logLevel:'warn',build:{ssr:'scripts/audit-entry.ts',outDir:'.audit-tmp',emptyOutDir:true,rollupOptions:{output:{entryFileNames:'audit.mjs'}}}});
+const audit=await import(pathToFileURL(path.resolve('.audit-tmp/audit.mjs')));
+const rows=audit.auditCases();fs.mkdirSync('verification',{recursive:true});
+fs.writeFileSync('verification/calculation-validation.json',JSON.stringify({createdAt:new Date().toISOString(),cases:rows,passed:rows.filter(r=>r.passed).length,failed:rows.filter(r=>!r.passed).length},null,2)+'\n');
+if(rows.some(r=>!r.passed))throw new Error('A calculation audit case failed.');
+const report=audit.exampleReport();fs.writeFileSync('verification/example-analysis.json',JSON.stringify(report,null,2)+'\n');
+fs.writeFileSync('verification/example-evidence.csv',audit.csvText(audit.reportRows(report)));
+const doc=await audit.createPdfDocument(report);fs.writeFileSync('verification/Example-Evidence-Report.pdf',Buffer.from(doc.output('arraybuffer')));
+console.log(JSON.stringify({calculationCases:rows.length,passed:rows.filter(r=>r.passed).length,exampleCandidates:report.candidates.map(c=>c.nuclide),bestMixture:report.mixture.mixtures[0]?.nuclides,unexplained:report.mixture.mixtures[0]?.unexplained,pdfPages:doc.getNumberOfPages()},null,2));
+fs.rmSync('.audit-tmp',{recursive:true,force:true});
